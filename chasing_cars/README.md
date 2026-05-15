@@ -1,0 +1,2 @@
+Taken from:
+Aineto, Diego, Enrico Scala, Eva Onaindia, and Ivan Serina. "Falsification of cyber-physical systems using PDDL+ planning." In Proceedings of the International Conference on Automated Planning and Scheduling, vol. 33, pp. 2-6. 2023.
