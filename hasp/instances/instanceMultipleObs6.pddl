@@ -1,0 +1,70 @@
+;; This is an instance file for finding a feasible path for a HAPS
+;; in a 2D space without obstacle
+;; Start: center, heading-north
+;; Target: north-east
+(define (problem instance)
+  (:domain haps_2dim)
+  (:objects
+	static_obs1 -static_obstacle
+	static_obs2 -static_obstacle
+	static_obs3 -static_obstacle
+	static_obs4 -static_obstacle
+	moving_obs1 -moving_obstacle
+	moving_obs2 -moving_obstacle
+  )
+
+  (:init
+	(= (time_step) 0.0)
+	(= (previous_time_step) 0.0)
+	(= (total-cost) 0)
+	(= (cost_static_obstacle) 10.0)
+	(= (cost_moving_obstacle) 10.0)
+	(motor_stopped)
+	(= (relative_position_north) 0.0)
+	(= (relative_position_east) 0.0)
+        (= (v) 0.0)
+	(= (heading) 0.0)
+	(= (heading_rate) 0.0)
+        (= (wind_velocity_north) 4.0)
+        (= (wind_velocity_east) -2.0)
+        (= (max_heading_rate) 0.1)
+	(= (min_heading_rate) -0.1)
+	(= (limit_space_north) 10000.0)
+	(= (limit_space_south) -10000.0)
+	(= (limit_space_east) 10000.0)
+	(= (limit_space_west) -10000.0)
+	(= (bound_north static_obs1) 500.0)
+	(= (bound_south static_obs1) 450.0)
+	(= (bound_east static_obs1) 50.0)
+	(= (bound_west static_obs1) 10.0)
+	(= (bound_north static_obs2) 5500.0)
+	(= (bound_south static_obs2) 4500.0)
+	(= (bound_east static_obs2) 1500.0)
+	(= (bound_west static_obs2) 500.0)
+	(= (bound_north static_obs3) 7300.0)
+	(= (bound_south static_obs3) 6300.0)
+	(= (bound_east static_obs3) 2700.0)
+	(= (bound_west static_obs3) 1700.0)
+	(= (bound_north static_obs4) 5800.0)
+	(= (bound_south static_obs4) 4800.0)
+	(= (bound_east static_obs4) 8800.0)
+	(= (bound_west static_obs4) 7800.0)
+	(= (bound_north moving_obs1) 5700.0)
+	(= (bound_south moving_obs1) 5500.0)
+	(= (bound_east moving_obs1) 4800.0)
+	(= (bound_west moving_obs1) 4000.0)
+	(= (bound_north moving_obs2) 7800.0)
+	(= (bound_south moving_obs2) 7300.0)
+	(= (bound_east moving_obs2) 8800.0)
+	(= (bound_west moving_obs2) 8000.0)
+  )
+
+  (:goal
+    (and 
+	(>= (relative_position_north) 9500.0 )
+	(<= (relative_position_north) 9900.0 )
+	(>= (relative_position_east) 9500.0 )
+	(<= (relative_position_east) 9900.0 )
+    )
+  )
+)
